@@ -1,10 +1,7 @@
 <script setup>
-import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import NavBar from "@/Components/NavBar.vue";
+
+import {Head, Link, useForm} from '@inertiajs/inertia-vue3';
 
 const form = useForm({
     name: '',
@@ -22,43 +19,42 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout>
-        <Head title="Register" />
-
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="name" value="Name" />
-                <TextInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
-                <InputError class="mt-2" :message="form.errors.name" />
+    <Head title="Register"/>
+    <NavBar/>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-sm-4 col-lg-3 col-xl-2 mx-auto mb-2">
+                <img src="icons/genie0.svg" class="cardsImg card-img-top" alt="Gifter" min-width="100" min-height="100">
             </div>
+        </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-9 col-sm-7 col-md-6 col-lg-5 col-xl-3 text-center">
+                <h1>You need to register, I'll wait a bit!</h1>
+                <form @submit.prevent="submit">
 
-            <div class="mt-4">
-                <InputLabel for="email" value="Email" />
-                <TextInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autocomplete="username" />
-                <InputError class="mt-2" :message="form.errors.email" />
+                    <input v-model="form.name" type="text" class="form-control mt-3" placeholder="Name">
+                    <p class="text-danger text-small mt-1">{{ form.errors.name }}</p>
+
+                    <input v-model="form.email" autocomplete="username" type="email" class="form-control mt-3"
+                           placeholder="Email">
+                    <p class="text-danger text-small mt-1">{{ form.errors.email }}</p>
+
+                    <input v-model="form.password" autocomplete="current-password" type="password"
+                           class="form-control mt-3" placeholder="Password">
+                    <p class="text-danger text-small mt-1">{{ form.errors.password }}</p>
+
+                    <input v-model="form.password_confirmation" autocomplete="new-password" type="password"
+                           class="form-control mt-3" placeholder="Confirm Password">
+                    <p class="text-danger text-small mt-1">{{ form.errors.password_confirmation }}</p>
+
+                    <input type="submit" class="col-7 col-sm-4 btn btn-outline-primary mt-4" value="Register">
+
+                </form>
+                <div class="mt-3">
+                    <Link :href="route('login')" class="btn-link">Login</Link>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-                <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
-                <TextInput id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
-                <InputError class="mt-2" :message="form.errors.password_confirmation" />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Already registered?
-                </Link>
-
-                <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
-                </PrimaryButton>
-            </div>
-        </form>
-    </GuestLayout>
 </template>

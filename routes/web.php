@@ -27,5 +27,9 @@ use Inertia\Inertia;
 //Route::get('/dashboard', function () {
 //    return Inertia::render('Dashboard');
 //})->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/', \App\Http\Controllers\HomeController::class)->name('home');
+Route::get('/', \App\Http\Controllers\HomeController::class)->name('home.index');
+Route::get('/top', [\App\Http\Controllers\TopTenController::class, 'index'])->name('top.index');
+Route::get('/selection', [\App\Http\Controllers\SelectionController::class, 'index'])->name('selection.index');
+Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'index'])->middleware(['auth', 'verify.user'])->name('profile.index');
+Route::get('/info', \App\Http\Controllers\InfoController::class)->name('info.index');
 require __DIR__.'/auth.php';

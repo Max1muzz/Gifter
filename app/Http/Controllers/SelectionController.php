@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class SelectionController extends Controller
 {
-    //
+    public function index(){
+        return inertia('Selection/Index');
+    }
 }

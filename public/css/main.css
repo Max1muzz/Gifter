@@ -1,0 +1,67 @@
+@media screen and (min-width: 576px) {
+	.mini {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 575px) {
+	.maxi {
+		display: none;
+	}
+}
+
+a, input {
+    background-color: transparent;
+    border: none;
+	text-decoration: none;
+	color: #F8F8F8;
+}
+
+input:hover, a:hover {
+    color: #5c636a;
+}
+
+.mini, .maxi {
+	opacity: 0.7;
+}
+
+.text-small {
+    font-size: xx-small;
+    margin-bottom: -7px;
+    opacity: 0.7;
+}
+
+.btn {border-radius: 1.5rem;}
+.btn1 {background-image: url(../img/button1.png)}
+.btn2 {background-image: url(../img/button2.png)}
+.btn3 {background-image: url(../img/button3.png)}
+.btn4 {background-image: url(../img/button4.png)}
+.btn5 {background-image: url(../img/button5.png)}
+.btn6 {background-image: url(../img/button6.png)}
+
+
+.blocks {
+    background-size: 100% 100%;
+    min-height: 100px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.cardsImg {
+    object-fit: contain;
+    margin-top: 10px;
+}
+
+.colorFon {
+    background-color: #FAFAFA;
+    font-family: Nunito;
+}
+
+.active {
+    opacity: 1;
+}
+
+.active img {
+    height: 40px;
+    width: 40px;
+}
