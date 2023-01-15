@@ -14,7 +14,8 @@
                 <Link :href="route(section.url)" class="nav-link mini" :class="{active: isActive[key]}">
                     <img :src="isActive[key] ? section.img_1 : section.img_2"
                          class="rounded mx-auto d-block" alt="{{ section.title }}" width="30" height="30">
-                    <p v-if="!isActive[key]" class="text-center text-small">{{ section.title }}</p>
+                    <p class="text-center text-small">{{ section.title }}</p>
+<!--                    <p v-if="!isActive[key]" class="text-center text-small">{{ section.title }}</p>-->
                 </Link>
                 <Link :href="route(section.url)" class="nav-link maxi"
                       :class="{active: isActive[key]}">
@@ -38,7 +39,7 @@ export default {
     },
     setup() {
         //--  URLs where Navbar is closed  --//
-        const closeUrls = ['/top', '/twn', '/trn'];
+        const closeUrls = ['/tor', '/', '/selection'];
         const sections = {
             1: {title: 'TOP 10', url: 'top.index', img_1: '/icons/top-star1.svg', img_2: '/icons/top-star.svg'},
             2: {title: 'Selection', url: 'selection.index', img_1: '/icons/gifts1.svg', img_2: '/icons/gifts.svg'},
@@ -47,13 +48,13 @@ export default {
         };
         //let path = history.state.url ?? '/';
         let path = document.location.pathname ?? '/';
-        console.log(document.location.pathname);
+        //console.log(document.location.pathname);
         let isActive = checkActive();
         let animate = checkAnimate();
 
         function checkActive() {
             const pathShort = path.substr(0, 4);
-            if (pathShort === '/') return [1];
+            if (pathShort === '/hom') return [1];
             else if (pathShort === '/top') return [0, 1];
             else if (pathShort === '/sel') return [0, 0, 1];
             else if (pathShort === '/pro') return [0, 0, 0, 1];

@@ -47,7 +47,7 @@ const submit = () => {
                            class="form-control mt-3" placeholder="Confirm Password">
                     <p class="text-danger text-small mt-1">{{ form.errors.password_confirmation }}</p>
 
-                    <input type="submit" class="col-7 col-sm-4 btn btn-outline-primary mt-4" value="Register">
+                    <input type="submit" class="col-7 col-sm-4 btn btn-outline-secondary mt-4" value="Register">
 
                 </form>
                 <div class="mt-3">
