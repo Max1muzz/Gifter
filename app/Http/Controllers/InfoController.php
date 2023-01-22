@@ -15,6 +15,7 @@ class InfoController extends Controller
 //           return inertia('Auth/ForgotPassword', [
 //               'status' => session('status'),
 //           ]);
+        //ok
         return inertia('Info/Index');
     }
 }
