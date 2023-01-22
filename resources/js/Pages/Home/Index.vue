@@ -41,13 +41,12 @@
             Don't forget to register if you want to keep your rebound history.
         </h6>
     </div>
-    <Link :href="route('start')" class="btn btn-outline-primary">Start</Link>
+<!--    <Link :href="route('start')" class="btn btn-outline-primary">Start</Link>-->
 </template>
 
 <script>
 import {Link, Head} from "@inertiajs/inertia-vue3";
 import NavBar from "@/Components/NavBar.vue";
-import {Inertia} from '@inertiajs/inertia';
 
 export default {
     name: "Index",
